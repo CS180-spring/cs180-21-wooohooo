@@ -4,7 +4,7 @@
 The Student Information Data Store System is a cross-platform application designed to manage and store personal information for students. It features a user-friendly interface built with the Qt framework, allowing users to efficiently add, remove, and search for student information, as well as filter, match, and recommend partners based on specified criteria. This repository contains the source code and resources required to build and run the application.
 
 ## Table of Contents
-- [Features](#authors)
+- [Authors](#authors)
 - [Features](#features)
 
 ## Authors
