@@ -11,8 +11,7 @@ int main(){
     int choice;
     cout << "Type 1: login\n";
     cout << "Type 2: sign up\n";
-    cout << "Type 3: forgot password\n";
-    cout << "Type 4: exit\n";
+    cout << "Type 3: exit\n";
     cout << "Your choice:  ";
     // user choices
     cin >> choice;
@@ -27,18 +26,14 @@ int main(){
         case 2:
         signUp();
         break;
-
+            
         case 3:
-        forgot();
-        break;
-
-        case 4:
         cout << "You have exited!";
         break;
 
         default:
         system("clear");
-        cout << "Wrong action, type among these numbers: (1); (2); (3); (4) \n";
+        cout << "Wrong action, type among these numbers: (1); (2); (3) \n";
         main();
     }
 
@@ -98,53 +93,3 @@ void signUp(){
 
 }
 
-
-void forgot(){
-    int forgotPass;
-    system("clear");
-    cout << "Type 1: search id by entering your username\n";
-    cout << "Type 2: back to menu\n";
-    cout << "Your choice: ";
-    // check id or back
-    cin >> forgotPass;
-
-    switch(forgotPass){
-        case 1:{
-        int temp = 0;
-        string findUsername, findId, findCode;
-        cout << "enter your current username: ";
-        // input username to find password
-        cin >> findUsername;
-
-        // check information from the file
-        ifstream theFile2("information.txt");
-        while(theFile2 >> findId >> findCode){
-            if(findId == findUsername){
-                temp = 1;
-            }
-        }
-        theFile2.close();
-        if(temp == 1){
-            cout << "your password is: " << findCode << endl;
-            main();
-        }
-        else{
-            cout << "can not find your account\n";
-            main();
-        }
-    
-        break;
-        }
-
-        case 2:{
-        main();
-        break;
-
-        default: 
-        cout << "Wrong action, type these numbers: (1); (2)\n";
-        forgot();
-        }
-        
-    }
-
-}
