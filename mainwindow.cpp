@@ -6,11 +6,15 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    signUpWindow = new signUp(this);
+
+    connect(signUpWindow, SIGNAL(registrationSuccessful()), this, SLOT(handleRegistrationSuccessful()));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete signUpWindow;
 }
 
 
@@ -21,3 +25,16 @@ void MainWindow::on_pushButton_clicked()
     admin->setModal(true);
     admin->show();
 }
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    this->hide();
+    signUpWindow->setModal(true);
+    signUpWindow->show();
+}
+
+void MainWindow::handleRegistrationSuccessful()
+{
+    this->show();
+}
+

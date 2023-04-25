@@ -11,17 +11,22 @@ CONFIG += c++11
 SOURCES += \
     admin.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    signup.cpp
 
 HEADERS += \
     admin.h \
-    mainwindow.h
+    mainwindow.h \
+    signup.h
 
 FORMS += \
     admin.ui \
-    mainwindow.ui
+    mainwindow.ui \
+    signup.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+DISTFILES +=
