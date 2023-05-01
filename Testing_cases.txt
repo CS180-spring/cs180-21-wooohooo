@@ -1,0 +1,20 @@
+[
+   {
+	"Name": "Rickon Stark",
+	"Class Level": "Senior",
+	"Current Classes": ["CS141", "CS180", "CS166", "CS167"],
+	"Student ID": 862381111
+   },
+   {
+	"Name": "Jon Snow",
+	"Class Level": "Junior",
+	"Current Classes": ["CS130", "CS165", "CS166", "CS010B",
+	"Student ID": 862171711
+   }
+   {
+	"Name": "Caitlyn Stark",
+	"Class Level": "Sophomore",
+	"Current Classes": ["CS110", "Math120", "CS141"],
+	"Student ID": 862718278
+   }
+]
