@@ -16,6 +16,7 @@
 using namespace std;
 
 void printStudentInfo(const Student& student) {
+
     cout << "Student ID: " << student.getId() << endl;
     cout << "Name: " << student.getName() << endl;
     cout << "Birthday: " << student.getYear() << "." << student.getMonth() << "." << student.getDay() << endl;
@@ -37,6 +38,7 @@ void printStudentInfo(const Student& student) {
         cout << "Graduate" << endl;
     }
     cout << "Major: " << student.getMajor() << endl;
+    cout << "--------------------------------------------------" << endl;
 }
 
 #endif /* print_h */

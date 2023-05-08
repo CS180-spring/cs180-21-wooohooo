@@ -20,6 +20,18 @@
 using namespace std;
 using namespace rapidjson;
 
+void returnToMainMenu() {
+    cout << "Press 0 to return to main menu." << endl;
+    while (true) {
+        if (cin.get() == '0') {
+            cin.ignore();
+            //system("clear"); //  Linux
+            //system("cls"); //  Windows
+            return;
+        }
+    }
+}
+
 void saveStudentsToJSON(const vector<Student>& students) {
     Document document;
     document.SetObject();
@@ -66,7 +78,6 @@ bool studentIdExists(const vector<Student>& students, int id) {
 Student inputStudentInfo(vector<Student>& students) {
     int id, status, level, year, month, day;
     string name, major;
-    cout << "--------------------------------------------------\n";
     while (true) {
             cout << "Please enter student id: ";
             cin >> id;
@@ -105,9 +116,9 @@ Student inputStudentInfo(vector<Student>& students) {
                 cout << "Invalid input! Please enter 0 for undergraduate or 1 for graduate." << endl;
             }
         }
-    
+    cin.ignore();
     cout << "Please enter student major: ";
-    cin >> major;
+    getline(cin, major);
     
 
     
@@ -120,11 +131,19 @@ Student inputStudentInfo(vector<Student>& students) {
 
 int getStudentIdFromUser() {
     int searchId;
-    cout << "--------------------------------------------------\n";
     cout << "Enter the student ID you want to find: ";
     cin >> searchId;
     return searchId;
 }
+
+string getMajorFromUser() {
+    string searchMajor;
+    cout << "Enter the major you want to shows: ";
+    cin.ignore();
+    getline(cin, searchMajor);
+    return searchMajor;
+}
+
 
 
 #endif /* input_h */
