@@ -10,6 +10,7 @@
 
 #include "readStudent.h"
 #include "input.h"
+#include "print.h"
 
 void displayAllStudents(const vector<Student>& students) {
     if (students.empty()) {
@@ -17,15 +18,7 @@ void displayAllStudents(const vector<Student>& students) {
         return;
     }
     for (const Student& student : students) {
-        cout << "Student ID: " << student.getId() << endl;
-        cout << "Name: " << student.getName() << endl;
-        cout << "Year of Birth: " << student.getYear() << endl;
-        cout << "Month of Birth: " << student.getMonth() << endl;
-        cout << "Day of Birth: " << student.getDay() << endl;
-        cout << "Status: " << student.getStatus() << endl;
-        cout << "Level: " << student.getLevel() << endl;
-        cout << "Major: " << student.getMajor() << endl;
-        cout << endl;
+        printStudentInfo(student);
     }
 }
 

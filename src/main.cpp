@@ -10,6 +10,8 @@
 #include "input.h"
 #include "readStudent.h"
 #include "displayStudent.h"
+#include "searchStudent.h"
+
 
 using namespace std;
 
@@ -18,12 +20,15 @@ int main(int argc, const char * argv[]) {
     vector<Student> students;
 
     while (true) {
+        cout << "--------------------------------------------------\n";
         cout << "Please choose an option:\n";
         cout << "1 - Input student information\n";
         cout << "2 - Read student information from JSON\n";
         cout << "3 - Save student information to JSON\n";
-        cout << "4 - Display student information\n";
+        cout << "4 - Display all students' information\n";
+        cout << "5 - Search for a student by ID\n";
         cout << "0 - Exit program\n";
+        cout << "--------------------------------------------------\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -49,6 +54,12 @@ int main(int argc, const char * argv[]) {
             case 4:
                 displayAllStudents(students);
                 break;
+            case 5:
+                {
+                int searchId = getStudentIdFromUser();
+                searchStudentByID(students, searchId);
+                break;
+                }
             default:
                 cout << "Invalid choice!\n";
                 break;

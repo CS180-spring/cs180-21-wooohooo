@@ -21,14 +21,11 @@ using namespace std;
 using namespace rapidjson;
 
 void saveStudentsToJSON(const vector<Student>& students) {
-    // 创建一个Document对象
     Document document;
     document.SetObject();
 
-    // 创建一个Value对象来存储所有学生信息
     Value studentsJson(kArrayType);
 
-    // 将所有学生信息添加到Value对象中
     for (const Student& student : students) {
         Value studentJson(kObjectType);
         studentJson.AddMember("id", student.getId(), document.GetAllocator());
@@ -43,31 +40,43 @@ void saveStudentsToJSON(const vector<Student>& students) {
         studentsJson.PushBack(studentJson, document.GetAllocator());
     }
 
-    // 将studentsJson添加到Document对象中
     document.AddMember("students", studentsJson, document.GetAllocator());
 
-    // 创建一个StringBuffer对象
     StringBuffer buffer;
 
-    // 创建一个Writer对象，将StringBuffer对象传递给它
     Writer<StringBuffer> writer(buffer);
 
-    // 将Document对象写入StringBuffer对象
     document.Accept(writer);
 
-    // 将StringBuffer对象的内容写入文件
     ofstream ofs("students.json");
     ofs << buffer.GetString();
     ofs.close();
 }
 
+bool studentIdExists(const vector<Student>& students, int id) {
+    for (const Student& student : students) {
+        if (student.getId() == id) {
+            return true;
+        }
+    }
+    return false;
+}
 
 
 Student inputStudentInfo(vector<Student>& students) {
     int id, status, level, year, month, day;
     string name, major;
-    cout << "Please enter student id: ";
-    cin >> id;
+    cout << "--------------------------------------------------\n";
+    while (true) {
+            cout << "Please enter student id: ";
+            cin >> id;
+
+            if (studentIdExists(students, id)) {
+                cout << "Student ID already exists. Please enter a different ID." << endl;
+            } else {
+                break;
+            }
+        }
     cout << "Please enter student name: ";
     cin >> name;
     cout << "Please enter student year of birth: ";
@@ -107,6 +116,14 @@ Student inputStudentInfo(vector<Student>& students) {
     students.push_back(newStudent);
         
     return newStudent;
+}
+
+int getStudentIdFromUser() {
+    int searchId;
+    cout << "--------------------------------------------------\n";
+    cout << "Enter the student ID you want to find: ";
+    cin >> searchId;
+    return searchId;
 }
 
 
