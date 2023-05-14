@@ -6,7 +6,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    QPixmap pix(":/img/database.jpg");
+    QPixmap pix(":/resources/database.jpg");
     int w = ui->label->width();
     int h = ui->label->height();
     ui->label->setPixmap(pix.scaled(w,h,Qt::KeepAspectRatio));
@@ -20,3 +20,39 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_login_clicked()
+{
+    QString username = ui->username->text();
+    QString password = ui->password->text();
+    std::vector<QJsonObject> users;
+    QFile myFile(":/resources/users.json");
+    QString jsonStr;
+    QJsonObject jsonObj;
+    if(myFile.open(QIODevice::ReadOnly | QIODevice::Text)){
+        jsonStr = myFile.readAll();
+        myFile.close();
+        QJsonDocument doc = QJsonDocument::fromJson(jsonStr.toUtf8());
+        jsonObj = doc[0].toObject();
+        if(jsonObj.contains(username)){
+            if(jsonObj.take(username).toString() != password){
+                QMessageBox msg;
+                msg.setText("Wrong password!");
+                msg.exec();
+            }else{
+
+            }
+        }else{
+            QMessageBox msg;
+            msg.setText("Username doesn't exist!");
+            msg.exec();
+        }
+    }
+}
+
+
+void MainWindow::on_signup_clicked()
+{
+
+}
+

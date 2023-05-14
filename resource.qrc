@@ -1,5 +1,6 @@
 <RCC>
-    <qresource prefix="/img">
+    <qresource prefix="/resources">
         <file>database.jpg</file>
+        <file>users.json</file>
     </qresource>
 </RCC>
