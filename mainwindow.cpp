@@ -53,6 +53,12 @@ void MainWindow::on_login_clicked()
 
 void MainWindow::on_signup_clicked()
 {
-
+    this->hide();
+    SignUp s;
+    s.setModal(true);
+    s.exec();
+    if(s.close()){
+        this->show();
+    }
 }
 

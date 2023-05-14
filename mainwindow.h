@@ -3,12 +3,8 @@
 
 #include <QMainWindow>
 #include <QPixmap>
-#include <QMessageBox>
-#include <QJsonDocument>
-#include <QJsonArray>
-#include <QJsonObject>
-#include <vector>
-#include <QFile>
+
+#include "signup.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
