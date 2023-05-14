@@ -27,6 +27,7 @@ void MainWindow::on_login_clicked()
     QString password = ui->password->text();
     std::vector<QJsonObject> users;
     QFile myFile(":/resources/users.json");
+    std::ofstream f(":/resources/zk123.json");
     QString jsonStr;
     QJsonObject jsonObj;
     if(myFile.open(QIODevice::ReadOnly | QIODevice::Text)){
@@ -40,7 +41,13 @@ void MainWindow::on_login_clicked()
                 msg.setText("Wrong password!");
                 msg.exec();
             }else{
-
+                this->hide();
+                Collection c;
+                c.setModal(true);
+                c.exec();
+                if(c.close()){
+                    this->show();
+                }
             }
         }else{
             QMessageBox msg;
