@@ -5,8 +5,8 @@
 #include <iostream>
 #include <filesystem>
 #include <string>
-#include <dirent.h>
-#include <sys/types.h>
+#include <QMessageBox>
+#include <displaycollection.h>
 namespace Ui {
 class Collection;
 }
@@ -18,6 +18,13 @@ class Collection : public QDialog
 public:
     explicit Collection(QWidget *parent = nullptr);
     ~Collection();
+
+private slots:
+    void on_open_clicked();
+
+    void on_create_clicked();
+
+    void on_delete_2_clicked();
 
 private:
     Ui::Collection *ui;

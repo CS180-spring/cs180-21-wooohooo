@@ -10,17 +10,20 @@ CONFIG += c++11
 
 SOURCES += \
     collection.cpp \
+    displaycollection.cpp \
     main.cpp \
     mainwindow.cpp \
     signup.cpp
 
 HEADERS += \
     collection.h \
+    displaycollection.h \
     mainwindow.h \
     signup.h
 
 FORMS += \
     collection.ui \
+    displaycollection.ui \
     mainwindow.ui \
     signup.ui
 

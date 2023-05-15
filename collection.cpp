@@ -20,3 +20,33 @@ Collection::~Collection()
 {
     delete ui;
 }
+
+void Collection::on_open_clicked()
+{
+    QListWidgetItem *currentItem = ui->listWidget->currentItem();
+    QString str = currentItem->text();
+    displayCollection dc;
+    dc.set_filename(str.toStdString());
+    dc.setModal(true);
+    dc.exec();
+    if(dc.close()){
+        this->show();
+    }
+}
+
+
+void Collection::on_create_clicked()
+{
+
+}
+
+
+void Collection::on_delete_2_clicked()
+{
+    QListWidgetItem *currentItem = ui->listWidget->currentItem();
+    QString str = currentItem->text();
+    QMessageBox msg;
+    msg.setText(str);
+    msg.exec();
+}
+
