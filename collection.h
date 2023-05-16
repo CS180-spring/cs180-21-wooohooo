@@ -16,7 +16,7 @@ class Collection : public QDialog
     Q_OBJECT
 
 public:
-    explicit Collection(QWidget *parent = nullptr);
+    explicit Collection(QString s,QWidget *parent = nullptr);
     ~Collection();
 
 private slots:
@@ -26,8 +26,11 @@ private slots:
 
     void on_delete_2_clicked();
 
+    void on_back_clicked();
+
 private:
     Ui::Collection *ui;
+    QString username;
 };
 
 #endif // COLLECTION_H

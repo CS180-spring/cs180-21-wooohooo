@@ -17,6 +17,9 @@ public:
     explicit displayCollection(QString s,QWidget *parent = nullptr);
     ~displayCollection();
 
+private slots:
+    void on_back_clicked();
+
 private:
     Ui::displayCollection *ui;
     QString fileName;

@@ -42,7 +42,7 @@ void MainWindow::on_login_clicked()
                 msg.exec();
             }else{
                 this->hide();
-                Collection c;
+                Collection c(username);
                 c.setModal(true);
                 c.exec();
                 if(c.close()){

@@ -1,18 +1,29 @@
 #include "collection.h"
 #include "ui_collection.h"
-
-Collection::Collection(QWidget *parent) :
+#include <QDir>
+#include <QFileInfoList>
+Collection::Collection(QString s,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Collection)
 {
+    username = s;
     ui->setupUi(this);
-    ui->label->setText("Hello,");
-    std::string path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/zk123";
+    ui->label->setText("Hello, " + username + "!");
+    QFont font = ui->label->font();
+    font.setBold(true);
+    font.setPointSize(10);
+    ui->label->setFont(font);
 
-    // show all the file names
-    for(const auto &entry : std::filesystem::directory_iterator(path)){
-        std::string str = entry.path().filename().u8string();
-        ui->listWidget->addItem(QString::fromStdString(str));
+    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username;
+    QDir folder(path);
+    QFileInfoList list = folder.entryInfoList(QDir::Files);
+    if(list.empty()){
+        ui->listWidget->addItem("No collections!");
+    }else{
+        for(const QFileInfo& info : list){
+            QString filename = info.fileName();
+            ui->listWidget->addItem(filename);
+        }
     }
 }
 
@@ -25,11 +36,13 @@ void Collection::on_open_clicked()
 {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     QString str = currentItem->text();
-    displayCollection dc(str);
-    dc.setModal(true);
-    dc.exec();
-    if(dc.close()){
-        this->show();
+    if(str != "No collections!"){
+        displayCollection dc(str);
+        dc.setModal(true);
+        dc.exec();
+        if(dc.close()){
+            this->show();
+        }
     }
 }
 
@@ -47,5 +60,11 @@ void Collection::on_delete_2_clicked()
     QMessageBox msg;
     msg.setText(str);
     msg.exec();
+}
+
+
+void Collection::on_back_clicked()
+{
+    reject();
 }
 
