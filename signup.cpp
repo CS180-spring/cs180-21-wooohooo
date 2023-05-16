@@ -50,6 +50,6 @@ void SignUp::on_register_2_clicked()
 
 void SignUp::on_back_clicked()
 {
-
+    reject();
 }
 
