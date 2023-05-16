@@ -18,24 +18,32 @@ void SignUp::on_register_2_clicked()
     QString username = ui->username->text();
     QString password = ui->password->text();
     QJsonObject obj;
-    QFile file(":/resources/users.json");
-    if(file.open(QIODevice::ReadWrite)){
-        QString str = file.readAll();
-        QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
-        obj = doc[0].toObject();
-        obj.insert(username,password);
-        doc.setObject(obj);
-        QByteArray arr = "["+QJsonDocument(obj).toJson()+"]";
-        QTextStream stream(&file);
-        file.write(arr);
-        QMessageBox box;
-        box.setText(QString::number(obj.size()));
-        box.exec();
-        file.close();
+    QFile file("C:/Users/zhika/OneDrive/Desktop/cs180/180DB/users.json");
+    file.open(QIODevice::ReadOnly);
+    QByteArray data = file.readAll();
+    file.close();
+    QJsonDocument doc = QJsonDocument::fromJson(data);
+    QJsonArray arr = doc.array();
+    obj = arr.at(0).toObject();
+    if(obj.contains(username)){
+        QMessageBox msg;
+        msg.setText("Username already exist!");
+        msg.exec();
     }else{
-        QMessageBox box;
-        box.setText("aaa");
-        box.exec();
+        obj.insert(username,password);
+        arr.pop_front();
+        arr.append(obj);
+        QJsonDocument doc2(arr);
+        file.open(QIODevice::WriteOnly);
+        file.write(doc2.toJson());
+        file.close();
+        QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username;
+        QByteArray str = path.toLatin1();
+        char* c = str.data();
+        mkdir(c);
+        QMessageBox msg;
+        msg.setText("Successful!");
+        msg.exec();
     }
 }
 

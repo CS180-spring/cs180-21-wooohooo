@@ -26,7 +26,7 @@ void MainWindow::on_login_clicked()
     QString username = ui->username->text();
     QString password = ui->password->text();
     std::vector<QJsonObject> users;
-    QFile myFile(":/resources/users.json");
+    QFile myFile("C:/Users/zhika/OneDrive/Desktop/cs180/180DB/users.json");
     std::ofstream f(":/resources/zk123.json");
     QString jsonStr;
     QJsonObject jsonObj;

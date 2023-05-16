@@ -8,6 +8,7 @@
 #include <vector>
 #include <QFile>
 #include <QMessageBox>
+#include <sys/stat.h>
 namespace Ui {
 class SignUp;
 }

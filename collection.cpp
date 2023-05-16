@@ -25,8 +25,7 @@ void Collection::on_open_clicked()
 {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     QString str = currentItem->text();
-    displayCollection dc;
-    dc.set_filename(str.toStdString());
+    displayCollection dc(str);
     dc.setModal(true);
     dc.exec();
     if(dc.close()){
