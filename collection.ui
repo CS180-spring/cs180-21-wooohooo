@@ -36,19 +36,6 @@
     </rect>
    </property>
   </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>70</y>
-     <width>121</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Your collections:</string>
-   </property>
-  </widget>
   <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
@@ -60,6 +47,19 @@
    </property>
    <property name="text">
     <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="show">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>60</y>
+     <width>141</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Show collections</string>
    </property>
   </widget>
   <widget class="QWidget" name="">

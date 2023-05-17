@@ -28,6 +28,8 @@ private slots:
 
     void on_back_clicked();
 
+    void on_show_clicked();
+
 private:
     Ui::Collection *ui;
     QString username;

@@ -7,6 +7,7 @@ displayCollection::displayCollection(QString s,QWidget *parent) :
 {
     ui->setupUi(this);
     fileName = s;
+    setWindowTitle(fileName);
     QString str;
     ui->label->setText("Collection: " + fileName);
     QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/zk123/" + fileName;
