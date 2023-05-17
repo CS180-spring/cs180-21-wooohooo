@@ -3,6 +3,7 @@
 #include <QDir>
 #include <QFileInfoList>
 #include "createcollection.h"
+#include "deletecollection.h"
 Collection::Collection(QString s,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Collection)
@@ -64,9 +65,13 @@ void Collection::on_delete_2_clicked()
 {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     QString str = currentItem->text();
-    QMessageBox msg;
-    msg.setText(str);
-    msg.exec();
+    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/zk123";
+    DeleteCollection collection(path,str);
+    collection.setModal(true);
+    collection.exec();
+    if(collection.close()){
+        this->show();
+    }
 }
 
 

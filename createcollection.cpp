@@ -9,6 +9,7 @@ CreateCollection::CreateCollection(QString p,QWidget *parent) :
 {
     ui->setupUi(this);
     path = p;
+    setWindowTitle("Create new collection");
 }
 
 CreateCollection::~CreateCollection()

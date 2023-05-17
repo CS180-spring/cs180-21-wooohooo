@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     collection.cpp \
     createcollection.cpp \
+    deletecollection.cpp \
     displaycollection.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -19,6 +20,7 @@ SOURCES += \
 HEADERS += \
     collection.h \
     createcollection.h \
+    deletecollection.h \
     displaycollection.h \
     mainwindow.h \
     signup.h
@@ -26,6 +28,7 @@ HEADERS += \
 FORMS += \
     collection.ui \
     createcollection.ui \
+    deletecollection.ui \
     displaycollection.ui \
     mainwindow.ui \
     signup.ui
