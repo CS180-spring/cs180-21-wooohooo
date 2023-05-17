@@ -4,6 +4,7 @@
 #include <QFileInfoList>
 #include "createcollection.h"
 #include "deletecollection.h"
+#include "path.h"
 Collection::Collection(QString s,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Collection)
@@ -17,7 +18,7 @@ Collection::Collection(QString s,QWidget *parent) :
     font.setPointSize(10);
     ui->label->setFont(font);
 
-    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username;
+    QString path = folderPath + username;
     QDir folder(path);
     QFileInfoList list = folder.entryInfoList(QDir::Files);
     if(list.empty()){
@@ -40,7 +41,7 @@ void Collection::on_open_clicked()
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     QString str = currentItem->text();
     if(str != "No collections!"){
-        displayCollection dc(str);
+        displayCollection dc(username,str);
         dc.setModal(true);
         dc.exec();
         if(dc.close()){
@@ -52,7 +53,7 @@ void Collection::on_open_clicked()
 
 void Collection::on_create_clicked()
 {
-    CreateCollection collection("C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username);
+    CreateCollection collection(username);
     collection.setModal(true);
     collection.exec();
     if(collection.close()){
@@ -65,8 +66,7 @@ void Collection::on_delete_2_clicked()
 {
     QListWidgetItem *currentItem = ui->listWidget->currentItem();
     QString str = currentItem->text();
-    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/zk123";
-    DeleteCollection collection(path,str);
+    DeleteCollection collection(username,str);
     collection.setModal(true);
     collection.exec();
     if(collection.close()){
@@ -84,7 +84,7 @@ void Collection::on_back_clicked()
 void Collection::on_show_clicked()
 {
     ui->listWidget->clear();
-    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username;
+    QString path = folderPath + username;
     QDir folder(path);
     QFileInfoList list = folder.entryInfoList(QDir::Files);
     if(list.empty()){

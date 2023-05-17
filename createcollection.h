@@ -12,7 +12,7 @@ class CreateCollection : public QDialog
     Q_OBJECT
 
 public:
-    explicit CreateCollection(QString p,QWidget *parent = nullptr);
+    explicit CreateCollection(QString s,QWidget *parent = nullptr);
     ~CreateCollection();
 
 private slots:
@@ -22,7 +22,7 @@ private slots:
 
 private:
     Ui::CreateCollection *ui;
-    QString path;
+    QString username;
 };
 
 #endif // CREATECOLLECTION_H

@@ -1,16 +1,18 @@
 #include "displaycollection.h"
 #include "ui_displaycollection.h"
 #include <QFileInfo>
-displayCollection::displayCollection(QString s,QWidget *parent) :
+#include "path.h"
+displayCollection::displayCollection(QString username,QString filename,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::displayCollection)
 {
     ui->setupUi(this);
-    fileName = s;
+    this->username = username;
+    this->fileName = filename;
     setWindowTitle(fileName);
     QString str;
     ui->label->setText("Collection: " + fileName);
-    QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/zk123/" + fileName;
+    QString path = folderPath + this->username + "/" + fileName;
     QFile file(path);
     if(file.size() == 0){
         ui->plainTextEdit->insertPlainText("Empty!");

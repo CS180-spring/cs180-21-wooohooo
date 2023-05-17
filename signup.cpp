@@ -1,11 +1,12 @@
 #include "signup.h"
 #include "ui_signup.h"
-
+#include "path.h"
 SignUp::SignUp(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::SignUp)
 {
     ui->setupUi(this);
+    setWindowTitle("Sign up");
 }
 
 SignUp::~SignUp()
@@ -18,7 +19,7 @@ void SignUp::on_register_2_clicked()
     QString username = ui->username->text();
     QString password = ui->password->text();
     QJsonObject obj;
-    QFile file("C:/Users/zhika/OneDrive/Desktop/cs180/180DB/users.json");
+    QFile file(folderPath + "users.json");
     file.open(QIODevice::ReadOnly);
     QByteArray data = file.readAll();
     file.close();
@@ -37,7 +38,7 @@ void SignUp::on_register_2_clicked()
         file.open(QIODevice::WriteOnly);
         file.write(doc2.toJson());
         file.close();
-        QString path = "C:/Users/zhika/OneDrive/Desktop/cs180/180DB/" + username;
+        QString path = folderPath + username;
         QByteArray str = path.toLatin1();
         char* c = str.data();
         mkdir(c);

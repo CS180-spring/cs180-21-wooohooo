@@ -3,12 +3,13 @@
 #include <fstream>
 #include <QFile>
 #include <QMessageBox>
-CreateCollection::CreateCollection(QString p,QWidget *parent) :
+#include "path.h"
+CreateCollection::CreateCollection(QString s,QWidget *parent) :
     QDialog(parent),
     ui(new Ui::CreateCollection)
 {
     ui->setupUi(this);
-    path = p;
+    username = s;
     setWindowTitle("Create new collection");
 }
 
@@ -20,7 +21,7 @@ CreateCollection::~CreateCollection()
 void CreateCollection::on_confirm_clicked()
 {
     QString name = ui->name->text();
-    QString filePath = path + "/" + name;
+    QString filePath = folderPath + username + "/" + name;
     QFile file(filePath);
     if(file.exists()){
         QMessageBox msg;

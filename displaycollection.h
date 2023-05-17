@@ -14,7 +14,7 @@ class displayCollection : public QDialog
     Q_OBJECT
 
 public:
-    explicit displayCollection(QString s,QWidget *parent = nullptr);
+    explicit displayCollection(QString username,QString filename,QWidget *parent = nullptr);
     ~displayCollection();
 
 private slots:
@@ -22,6 +22,7 @@ private slots:
 
 private:
     Ui::displayCollection *ui;
+    QString username;
     QString fileName;
 };
 

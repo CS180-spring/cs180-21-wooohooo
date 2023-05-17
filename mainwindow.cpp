@@ -1,6 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-
+#include "path.h"
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget *parent)
     font.setBold(true);
     font.setPointSize(20);
     ui->title->setFont(font);
+    setWindowTitle("StudentDB");
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +27,7 @@ void MainWindow::on_login_clicked()
     QString username = ui->username->text();
     QString password = ui->password->text();
     std::vector<QJsonObject> users;
-    QFile myFile("C:/Users/zhika/OneDrive/Desktop/cs180/180DB/users.json");
+    QFile myFile(folderPath + "users.json");
     std::ofstream f(":/resources/zk123.json");
     QString jsonStr;
     QJsonObject jsonObj;

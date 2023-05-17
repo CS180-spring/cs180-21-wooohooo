@@ -22,7 +22,7 @@ private slots:
 
 private:
     Ui::DeleteCollection *ui;
-    QString path;
+    QString folder;
     QString filename;
 };
 

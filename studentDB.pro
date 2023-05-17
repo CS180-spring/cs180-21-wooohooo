@@ -23,6 +23,7 @@ HEADERS += \
     deletecollection.h \
     displaycollection.h \
     mainwindow.h \
+    path.h \
     signup.h
 
 FORMS += \
