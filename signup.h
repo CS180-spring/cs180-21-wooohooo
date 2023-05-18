@@ -2,27 +2,32 @@
 #define SIGNUP_H
 
 #include <QDialog>
-
+#include <QJsonDocument>
+#include <QJsonArray>
+#include <QJsonObject>
+#include <vector>
+#include <QFile>
+#include <QMessageBox>
+#include <sys/stat.h>
 namespace Ui {
-class signUp;
+class SignUp;
 }
 
-class signUp : public QDialog
+class SignUp : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit signUp(QWidget *parent = nullptr);
-    ~signUp();
-
-signals:
-    void registrationSuccessful();
+    explicit SignUp(QWidget *parent = nullptr);
+    ~SignUp();
 
 private slots:
-    void on_registerButton_clicked();
+    void on_register_2_clicked();
+
+    void on_back_clicked();
 
 private:
-    Ui::signUp *ui;
+    Ui::SignUp *ui;
 };
 
 #endif // SIGNUP_H
