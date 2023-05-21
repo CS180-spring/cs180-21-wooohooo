@@ -1,5 +1,6 @@
 {
     "employee": null,
+    "health": null,
     "love": null,
     "students": [
         {
@@ -8,7 +9,7 @@
             "Year": "Senior"
         },
         {
-            "Age": "22",
+            "Age": "twenty",
             "Name": "Kevin",
             "Year": "Senior"
         },

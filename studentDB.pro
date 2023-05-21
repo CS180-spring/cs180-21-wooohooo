@@ -14,6 +14,7 @@ SOURCES += \
     createcollection.cpp \
     deletecollection.cpp \
     displaycollection.cpp \
+    displaydocument.cpp \
     main.cpp \
     mainwindow.cpp \
     signup.cpp
@@ -24,6 +25,8 @@ HEADERS += \
     createcollection.h \
     deletecollection.h \
     displaycollection.h \
+    displaydocument.h \
+    fieldAndValue.h \
     mainwindow.h \
     path.h \
     signup.h
@@ -34,6 +37,7 @@ FORMS += \
     createcollection.ui \
     deletecollection.ui \
     displaycollection.ui \
+    displaydocument.ui \
     mainwindow.ui \
     signup.ui
 

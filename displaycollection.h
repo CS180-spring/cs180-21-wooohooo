@@ -21,6 +21,10 @@ private slots:
     void on_back_clicked();
     void on_add_clicked();
     void refreshKeyList();
+    void on_open_clicked();
+
+signals:
+    void openButtonClicked(const QString& key);
 
 private:
     Ui::displayCollection *ui;

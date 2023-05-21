@@ -56,6 +56,7 @@ void MainWindow::on_login_clicked()
             msg.exec();
         }
     }
+    this->close();
 }
 
 
