@@ -13,7 +13,7 @@ The Student Information Data Store System is a cross-platform application design
 - [Sihua Lin]() - Quality assurance/testing lead
 - [Zhikang Liu]() - Data structure engineer
 - [Xi Chen]() - Algorithm and performance specialist
-- [Justin Bollmann]() - User/programming interface engineer
+- [Justin Bollmann]() - User/programming interface engineer/Test Cases
 
 ## Features
 - Add and remove student information
