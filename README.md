@@ -1,7 +1,7 @@
 [![Open in Visual Studio Code](https://classroom.github.com/assets/open-in-vscode-718a45dd9cf7e7f842a935f5ebbe5719a5e09af4491e668f4dbf3b35d5cca122.svg)](https://classroom.github.com/online_ide?assignment_repo_id=10815271&assignment_repo_type=AssignmentRepo)
-# StudentDB
+# WooohoooDB
 
-This project is a developer-focused data store system built with C++ and Qt, primarily designed for storing and managing student information. The system provides an intuitive user interface and useful features to help developers efficiently work with student data.
+This project is a developer-focused data store system built with C++ and Qt, primarily designed for storing and managing JSON format data. The system provides an intuitive user interface and useful features to help developers efficiently work with huge amount of data.
 
 ## Authors
 
