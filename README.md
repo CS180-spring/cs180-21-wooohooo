@@ -3,10 +3,6 @@
 
 This project is a developer-focused data store system built with C++ and Qt, primarily designed for storing and managing student information. The system provides an intuitive user interface and useful features to help developers efficiently work with student data.
 
-## Table of Contents
-- [Authors](#authors)
-- [Features](#features)
-
 ## Authors
 
 - [Hanlin Zha](https://github.com/AozakiKoriko) - Development lead/software architect
