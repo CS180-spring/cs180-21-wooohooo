@@ -61,7 +61,7 @@ This project is a developer-focused data store system built with C++ and Qt, pri
 - It is recommended to back up important files before performing any deletion or modification operations.
 - If you don't change the file path (step 5 and 6 in the installation), the programm will not run normally.
 - When you input any JSON contants, you need use JSON data structure, for example: 
-  If you want enter an entry like: 
+  If you want input an entry like: 
   Name: Bob
   Age: 20
   You will required to input {"Name": "Bob", "Age", "20"}
