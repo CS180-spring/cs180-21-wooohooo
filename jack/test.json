@@ -1,0 +1,57 @@
+{
+    "employees": [
+        {
+            "Age": "29",
+            "Department": "Library",
+            "ID": "546792150",
+            "Job": "Librarian",
+            "Name": "Black"
+        }
+    ],
+    "students": [
+        {
+            "Age": "21",
+            "GPA": "4.0",
+            "ID": "000000001",
+            "Name": "Alice",
+            "Status": "Good Standing"
+        },
+        {
+            "Age": "27",
+            "GPA": "3.1",
+            "ID": "000000003",
+            "Name": "Catherine",
+            "Status": "Good Standing"
+        },
+        {
+            "Age": "27",
+            "GPA": "1.9",
+            "ID": "000000026",
+            "Name": "Zack",
+            "Status": "Academic Warning"
+        }
+    ],
+    "teachers": [
+        {
+            "Age": "35",
+            "ID": "100000001",
+            "Name": "Ashley",
+            "Position": "Teadching Assit",
+            "Subject": "Art"
+        },
+        {
+            "Age": "48",
+            "ID": "100000095",
+            "Name": "Richard",
+            "Position": "Professor",
+            "Subject": "Computer Science"
+        },
+        {
+            "Age": "65",
+            "ID": "970005400",
+            "Name": "Jacob",
+            "Position": "President"
+        }
+    ],
+    "test": null
+}

@@ -1,0 +1,40 @@
+{
+    "employee": null,
+    "health": null,
+    "love": null,
+    "students": [
+        {
+            "Age": "21",
+            "Name": "Jack",
+            "Year": "Senior"
+        },
+        {
+            "Age": "twenty",
+            "Name": "Kevin",
+            "Year": "Senior"
+        },
+        {
+            "Age": "18",
+            "Name": "Zack",
+            "Year": "Freshman"
+        }
+    ],
+    "teachers": [
+        {
+            "Age": "21",
+            "Name": "Jack",
+            "Year": "Senior"
+        },
+        {
+            "Age": "22",
+            "Name": "Kevin",
+            "Year": "Senior"
+        },
+        {
+            "Age": "18",
+            "Name": "Zack",
+            "Year": "Freshman"
+        }
+    ],
+    "yes": null
+}
