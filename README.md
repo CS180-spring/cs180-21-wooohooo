@@ -35,9 +35,12 @@ This project is a developer-focused data store system built with C++ and Qt, pri
    - Users can add new keys and assign values to them.
    - Users can view all entries for a selected key and retrieve the corresponding information.
    - Users can add new entries to a selected key and add data to the JSON file.
-   - Users can search for entries by keywords and find entries that contain specific keywords.
 
-5. Edit and Delete JSON Entries
+5. Golbal Search
+   - Users can search for entries by keywords and find entries that contain specific keywords.
+   - Users can do further operations when located any specfic entries.
+
+6. Edit and Delete JSON Entries
    - Users can edit selected JSON entries, add new data, or modify existing data.
    - Users can delete JSON entries that are no longer needed to keep the data updated and organized.
 
