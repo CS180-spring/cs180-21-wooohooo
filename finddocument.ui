@@ -1,58 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>displayCollection</class>
- <widget class="QDialog" name="displayCollection">
+ <class>findDocument</class>
+ <widget class="QDialog" name="findDocument">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
+    <width>800</width>
     <height>500</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>30</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Key List</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="add">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>130</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Add</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="back">
-   <property name="geometry">
-    <rect>
-     <x>270</x>
-     <y>460</y>
-     <width>100</width>
-     <height>32</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Back</string>
-   </property>
-  </widget>
-  <widget class="QListWidget" name="keyList">
+  <widget class="QTextBrowser" name="print">
    <property name="geometry">
     <rect>
      <x>10</x>
@@ -62,20 +23,30 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="refresh">
+  <widget class="QLineEdit" name="searchInput">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>60</y>
+     <y>30</y>
+     <width>250</width>
+     <height>21</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="search">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>25</y>
      <width>100</width>
      <height>32</height>
     </rect>
    </property>
    <property name="text">
-    <string>Refresh</string>
+    <string>Search</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="open">
+  <widget class="QPushButton" name="overwrite">
    <property name="geometry">
     <rect>
      <x>270</x>
@@ -85,20 +56,43 @@
     </rect>
    </property>
    <property name="text">
-    <string>Open</string>
+    <string>&lt;-Overwrite</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="find">
+  <widget class="QPushButton" name="back">
    <property name="geometry">
     <rect>
-     <x>270</x>
-     <y>170</y>
+     <x>670</x>
+     <y>450</y>
      <width>100</width>
      <height>32</height>
     </rect>
    </property>
    <property name="text">
-    <string>Find</string>
+    <string>Back</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="editInput">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>90</y>
+     <width>250</width>
+     <height>350</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="deleteButton">
+   <property name="geometry">
+    <rect>
+     <x>270</x>
+     <y>130</y>
+     <width>100</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Delete</string>
    </property>
   </widget>
  </widget>

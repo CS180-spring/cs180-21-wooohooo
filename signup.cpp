@@ -18,6 +18,14 @@ void SignUp::on_register_2_clicked()
 {
     QString username = ui->username->text();
     QString password = ui->password->text();
+
+    if(username.trimmed().isEmpty() || password.trimmed().isEmpty()) {
+        QMessageBox msg;
+        msg.setText("Username or password cannot be empty!");
+        msg.exec();
+        return;  // If username or password is empty, return from this function
+    }
+
     QJsonObject obj;
     QFile file(folderPath + "users.json");
     file.open(QIODevice::ReadOnly);

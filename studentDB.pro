@@ -9,17 +9,20 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    adddocument.cpp \
     addkey.cpp \
     collection.cpp \
     createcollection.cpp \
     deletecollection.cpp \
     displaycollection.cpp \
     displaydocument.cpp \
+    finddocument.cpp \
     main.cpp \
     mainwindow.cpp \
     signup.cpp
 
 HEADERS += \
+    adddocument.h \
     addkey.h \
     collection.h \
     createcollection.h \
@@ -27,17 +30,20 @@ HEADERS += \
     displaycollection.h \
     displaydocument.h \
     fieldAndValue.h \
+    finddocument.h \
     mainwindow.h \
     path.h \
     signup.h
 
 FORMS += \
+    adddocument.ui \
     addkey.ui \
     collection.ui \
     createcollection.ui \
     deletecollection.ui \
     displaycollection.ui \
     displaydocument.ui \
+    finddocument.ui \
     mainwindow.ui \
     signup.ui
 

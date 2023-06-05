@@ -14,6 +14,8 @@ addKey::addKey(QString username, QString fileName, QWidget *parent) :
     fileName(fileName)
 {
     ui->setupUi(this);
+    qDebug() << "username: " << username;
+    qDebug() << "filename: " << fileName;
     connect(ui->keyConfirm, &QPushButton::clicked, this, &addKey::on_keyConfirm_clicked);
 }
 
@@ -30,7 +32,12 @@ void addKey::on_keyConfirm_clicked() {
 
     // 读取 JSON 数据
     QString str = file.readAll();
-    QJsonDocument doc = QJsonDocument::fromJson(str.toUtf8());
+    QJsonDocument doc;
+    if (!str.isEmpty()) {
+        doc = QJsonDocument::fromJson(str.toUtf8());
+    } else {
+        doc = QJsonDocument::fromJson("{}");
+    }
     file.close();
 
     // 修改 JSON 数据

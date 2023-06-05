@@ -49,6 +49,7 @@ void MainWindow::on_login_clicked()
                 if(c.close()){
                     this->show();
                 }
+                this->close();
             }
         }else{
             QMessageBox msg;
@@ -56,7 +57,6 @@ void MainWindow::on_login_clicked()
             msg.exec();
         }
     }
-    this->close();
 }
 
 

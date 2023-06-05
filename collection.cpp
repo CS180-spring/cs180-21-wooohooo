@@ -48,7 +48,6 @@ void Collection::on_open_clicked()
             this->show();
         }
     }
-    this->close();
 }
 
 

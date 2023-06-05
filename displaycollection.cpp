@@ -8,6 +8,7 @@
 #include "addkey.h"
 #include "fieldAndValue.h"
 #include "displaydocument.h"
+#include "finddocument.h"
 
 displayCollection::displayCollection(QString username,QString filename,QWidget *parent) :
     QDialog(parent),
@@ -45,12 +46,12 @@ displayCollection::displayCollection(QString username,QString filename,QWidget *
         }
     }
     connect(ui->refresh, &QPushButton::clicked, this, &displayCollection::refreshKeyList);
+    usingPath = folderPath + this->username + "/" + fileName;
 }
 
 void displayCollection::refreshKeyList() {
-    ui->keyList->clear(); // 清空 keyList
+    ui->keyList->clear();
 
-    // 重新加载 keyList 的内容
     QString path = folderPath + this->username + "/" + this->fileName;
     QFile file(path);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -69,24 +70,20 @@ void displayCollection::refreshKeyList() {
 }
 
 void displayCollection::on_add_clicked() {
-    addKey addKeyDialog(this->username, this->fileName, this);  // 创建 addKey 对话框
-    addKeyDialog.exec();        // 显示 addKey 对话框
+    addKey addKeyDialog(this->username, this->fileName, this);
+    addKeyDialog.exec();
 }
 
 void displayCollection::on_open_clicked() {
-    // 检查是否选中了某个键
     QListWidgetItem* selectedItem = ui->keyList->currentItem();
     if (!selectedItem) {
-        return; // 如果没有选中键，则直接返回
+        return;
     }
 
-    // 获取选中的键名
     QString selectedKeyName = selectedItem->text();
 
-    // 存储选中键的所有内容的新 vector
     std::vector<FieldAndValue> selectedKeyContents;
 
-    // 获取选中键的内容
     QString path = folderPath + this->username + "/" + this->fileName;
     QFile file(path);
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
@@ -97,20 +94,16 @@ void displayCollection::on_open_clicked() {
         if (!doc.isNull() && doc.isObject()) {
             QJsonObject obj = doc.object();
 
-            // 检查选中键是否存在于集合中
             if (obj.contains(selectedKeyName)) {
                 QJsonValue selectedValue = obj.value(selectedKeyName);
 
-                // 检查选中键的值是否为数组类型
                 if (selectedValue.isArray()) {
                     QJsonArray selectedArray = selectedValue.toArray();
 
-                    // 遍历数组中的每个元素
                     for (const QJsonValue& item : selectedArray) {
                         if (item.isObject()) {
                             QJsonObject itemObj = item.toObject();
 
-                            // 创建 FieldAndValue 对象，并将字段和值添加到 selectedKeyContents 中
                             FieldAndValue fieldValue;
 
                             for (const QString& key : itemObj.keys()) {
@@ -130,15 +123,18 @@ void displayCollection::on_open_clicked() {
             }
         }
     }
-
-    // 在这里可以使用 selectedKeyContents 做进一步的处理，根据需求进行操作
-
-    // 创建并显示 DisplayDocument 窗口
-    displayDocument* displayDoc = new displayDocument();
+    displayDocument* displayDoc = new displayDocument(usingPath, selectedKeyName, this);
     displayDoc->displayKeyContents(selectedKeyContents);
-    displayDoc->show();
-    this->close();
+    displayDoc->exec();
+    delete displayDoc;
 }
+
+void displayCollection::on_find_clicked() {
+    findDocument* findDoc = new findDocument(usingPath, this);
+    findDoc->exec();
+    delete findDoc;
+}
+
 
 
 displayCollection::~displayCollection()
